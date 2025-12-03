@@ -90,7 +90,19 @@ SELECT MAX(a.created_at) FROM articles a;
 -- - La date du premier commentaire du système
 SELECT MIN(c.created_at) FROM comments c
 
-/*  17   */
 
+
+/*====================    Niveau 5:     ========================*/
 /*  18   */
+SELECT a.title, a.user_id as userName, a.created_at FROM articles a
+
 /*  19   */
+select (select c.name from categories c where c._id=a.catg_id) as categories, Count(a.*)  as 'ArticlesCount' 
+from categories c, articles a
+group by a.catg_id
+/*  20   */
+/*  21   */
+/*  22   */
+/*  23   */
+/*  24   */
+/*  25   */
