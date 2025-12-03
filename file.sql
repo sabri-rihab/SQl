@@ -94,6 +94,7 @@ create table comments(
     userName varchar(60) default 'guest',
     content varchar(200) not null,
     article int not null,
+    status varchar(60) not null,
     foreign key(userName) references users(userName) on delete set null,
     foreign key(article) references articles(_id) on delete cascade
 );
