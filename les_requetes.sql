@@ -67,9 +67,30 @@ WHERE u.email LIKE "%@gmail.com";
 SELECT COUNT(*) as 'total articles' FROM articles
 
 /*  14   */
+-- Compter le nombre d'articles par catégorie
+SELECT a.catg_id AS 'category',COUNT(a.catg_id) as 'Count Catg' FROM articles a
+GROUP BY a.catg_id;
+
+-- autre method
+-- Compter le nombre d'articles par catégorie
+SELECT (SELECT c.name  
+        from categories c
+       WHERE c._id = a.catg_id
+       )AS 'Category',COUNT(a.catg_id) FROM articles a
+GROUP BY a.catg_id;
 
 /*  15   */
+-- Calculer la longueur moyenne (en caractères) des articles publiés
+select avg(LENGTH(a.content)) as 'Average article length' from articles a;
+
 /*  16   */
+--  La date du dernier article publié
+SELECT MAX(a.created_at) FROM articles a;
+
+-- - La date du premier commentaire du système
+SELECT MIN(c.created_at) FROM comments c
+
 /*  17   */
+
 /*  18   */
 /*  19   */
